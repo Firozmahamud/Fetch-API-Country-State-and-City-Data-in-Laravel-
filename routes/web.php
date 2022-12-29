@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UniverseController;
+use App\Http\Controllers\BdController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +23,12 @@ Route::get('/', function () {
 Route::get('/countries',[UniverseController::class,'index']);
 Route::get('/states',[UniverseController::class,'getStates'])->name('states');
 Route::get('/cities',[UniverseController::class,'getCities'])->name('cities');
+
+Route::get('/bd',[BdController::class,'index']);
+Route::post('/bd/store',[BdController::class, 'store'])->name('bd.store');
+Route::get('/bdcities',[BdController::class,'bdcities'])->name('bdcities');
+
+
+// Route::get('/country', function () {
+//     return view('bd.form');
+// });
